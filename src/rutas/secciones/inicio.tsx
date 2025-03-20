@@ -1,8 +1,11 @@
-function Inicio() {
+import MostrarDatos from "../../componentes/MostrarTexto"
+
+function Inicio()
+{
   return (
     <>
         <div className='titulos'>
-            me llamo Michelle
+            <MostrarDatos/>
         </div>
     </>
   )

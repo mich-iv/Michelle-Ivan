@@ -1,3 +1,5 @@
+import MostrarTexto from "../../componentes/MostrarTexto";
+
 function Acerca() {
   return (
     <>
@@ -14,6 +16,7 @@ function Acerca() {
          }}>Sumar
 
         </button>
+        <MostrarTexto/>
         </div>
 
         

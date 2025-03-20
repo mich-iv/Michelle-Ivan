@@ -10,4 +10,25 @@
 .titulos{
     color : #646cff;
     font-size: 3.2em;
+    animation: fade-in 1.5s forwards;
 }
+
+@keyframes fade-in {
+ from { opacity: 0; }
+ to { opacity: 1; }
+}
+
+.tituloH{
+    color : #646cff;
+    /* font-size: 2.5em; */
+    transition: 200ms;
+}
+
+.titulos, .test2 {
+    animation: fade-in 1.5s forwards;
+  }
+  
+  @keyframes fade-in {
+   from { opacity: 0; }
+   to { opacity: 1; }
+  }
