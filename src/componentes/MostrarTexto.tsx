@@ -1,5 +1,5 @@
-import {auth, provider, analytics, bd} from "../firebase/firebase";
-import { getDocs, collection, doc } from "firebase/firestore";
+import {bd} from "../firebase/firebase";
+import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 //funcion que conecta con base de datos y trae los datos 
@@ -8,8 +8,6 @@ export function MostrarTexto(){
     //obtenemos la ubicacion del url actual
     let ubicacion = window.location.pathname;
     console.log(ubicacion);
-
-    let temporal: any[] = [];
 
     interface Datos {
         [key: string]: {
@@ -34,12 +32,19 @@ export function MostrarTexto(){
                 data.id = doc.id;
                 return data;
             })
+
             return (docs);
         }
 
         docSnap().then(valor => {
             try {
-                setDatos(valor);
+                const datosObj: Datos = valor.reduce((acc, doc) => {
+                    if (doc.texto) {
+                        acc[doc.id] = { texto: doc.texto };
+                    }
+                    return acc;
+                }, {} as Datos);
+                setDatos(datosObj);
             } catch (error) {
                 console.error(error);
             }
@@ -52,7 +57,7 @@ export function MostrarTexto(){
         return Object.keys(datos).map((key) => {
             return (
                 <div key={key}>
-                    <div className={`test1`}>{datos[key].texto}</div>
+                    <div className={``}>{datos[key].texto}</div>
                 </div>
             )
         });

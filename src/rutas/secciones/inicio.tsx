@@ -4,9 +4,9 @@ function Inicio()
 {
   return (
     <>
-        <div className='titulos'>
-            <MostrarDatos/>
-        </div>
+      <div className='titulos'>
+        <MostrarDatos/>
+      </div>
     </>
   )
 }
