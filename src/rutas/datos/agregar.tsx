@@ -1,9 +1,12 @@
 import { Component } from 'react'
+import EditorTexto from '../../componentes/editorTexto'
 
 export default class Agregar extends Component {
   render() {
     return (
-        <textarea id="default">Hello, World!</textarea>
+      <div>
+        <EditorTexto />
+      </div>
     )
   }
 }

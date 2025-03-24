@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 //funcion que conecta con base de datos y trae los datos 
 // de la coleccion dependiendo del parametro que se le pase
+
 export function MostrarTexto(){
     //obtenemos la ubicacion del url actual
     let ubicacion = window.location.pathname;
@@ -56,7 +57,7 @@ export function MostrarTexto(){
         
         return Object.keys(datos).map((key) => {
             return (
-                <div key={key}>
+                <div draggable key={key}>
                     <div className={``}>{datos[key].texto}</div>
                 </div>
             )
