@@ -58,13 +58,13 @@ export default function EditorTexto() {
       <>
         <Editor className='root'
             id='edit'
-            inline={false}
+            inline={true}
             tinymceScriptSrc={'tinymce/tinymce.min.js'}
-            initialValue={initialValue}
-            onInit={(evt, editor) => editorRef.current = editor}
+            onInit={(_evt, editor) => editorRef.current = editor}
+            initialValue="<p>This is the initial content of the editor.</p>"
             init={{
-                selector: "textarea#editorMCE",
                 resize: "both",
+                license_key: 'gpl',
                 forced_root_block: 'texto',
                 newline_behavior: 'linebreak',
                 promotion: false,
@@ -91,12 +91,12 @@ export default function EditorTexto() {
                 file_picker_types: 'image',
                 /* and here's our custom image picker*/
                 file_picker_callback: (cb, value, meta) => {
-                    const input = document.createElement('input');
+                    const input = document.createElemebnt('input');
                     input.setAttribute('type', 'file');
                     input.setAttribute('accept', 'image/*');
                 
                     input.addEventListener('change', (e) => {
-                        const file = e.target.files[0];
+                        const file = (e.target as HTMLInputElement).files[0];
                 
                         const reader = new FileReader();
                         reader.addEventListener('load', () => {
